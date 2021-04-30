@@ -94,7 +94,7 @@ func (e *Element) Link(dst *Element) bool {
 
 func (e *Element) LinkFiltered(dst *Element, caps *Caps) bool {
 
-	result := C.gst_element_link_filtered(e.GstElement, dst.GstElement, caps)
+	result := C.gst_element_link_filtered(e.GstElement, dst.GstElement, caps.caps)
 	if result == C.TRUE {
 		return true
 	}
