@@ -92,6 +92,15 @@ func (e *Element) Link(dst *Element) bool {
 	return false
 }
 
+func (e *Element) LinkFiltered(dst *Element, caps *Caps) bool {
+
+	result := C.gst_element_link_filtered(e.GstElement, dst.GstElement, caps)
+	if result == C.TRUE {
+		return true
+	}
+	return false
+}
+
 func (e *Element) GetPadTemplate(name string) (padTemplate *PadTemplate) {
 
 	n := (*C.gchar)(unsafe.Pointer(C.CString(name)))
