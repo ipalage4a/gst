@@ -7,9 +7,8 @@ package gst
 #include "gst.h"
 */
 import "C"
-import "time"
 
-func (e *Element) Seek(duration time.Duration) bool {
-	result := C.gst_element_seek_simple(e.GstElement, C.GST_FORMAT_TIME, C.GST_SEEK_FLAG_FLUSH, C.long(duration.Nanoseconds()))
-	return result == C.TRUE
-}
+// func (e *Element) Seek(duration time.Duration) bool {
+// 	result := C.gst_element_seek_simple(e.GstElement, C.GST_FORMAT_TIME, C.GST_SEEK_FLAG_FLUSH, C.long(duration.Nanoseconds()))
+// 	return result == C.TRUE
+// }
