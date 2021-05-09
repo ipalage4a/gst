@@ -239,14 +239,14 @@ func (e *Element) PullSample() (sample *Sample, err error) {
 
 	CGstSample := C.gst_app_sink_pull_sample((*C.GstAppSink)(unsafe.Pointer(e.GstElement)))
 	if CGstSample == nil {
-		err = errors.New("could not pull a sample from appsink")
+		err = errors.New("gst_app_sink_pull_sample: could not pull a sample from appsink")
 		return
 	}
 
 	gstBuffer := C.gst_sample_get_buffer(CGstSample)
 
 	if gstBuffer == nil {
-		err = errors.New("could not pull a sample from appsink")
+		err = errors.New("gst_sample_get_buffer: could not pull a sample from appsink")
 		return
 	}
 
